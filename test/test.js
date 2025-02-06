@@ -1,4 +1,4 @@
-import { calculateCO2 } from '../script.js';  // Import function for testing that is in the root 
+import { calculateCO2 } from '../script.js'; // Import function for testing that is in the root 
 
 describe("CO2 Emissions Calculator", () => {
 
