@@ -24,4 +24,4 @@ describe("CO2 Emissions Calculator", () => {
 //        expect(() => calculateCO2()).toThrow("Invalid distance. Please enter a positive number.");
 //    });
 
-});
+//});
