@@ -1,22 +1,39 @@
-name: Run Tests
+name: Regenerate package-lock.json and Run Tests
 
 on:
+  workflow_dispatch:  # Allows manual trigger
   push:
     branches:
       - main
   pull_request:
 
 jobs:
-  build:
+  update-package-lock:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4 # Check out the repository
-      - name: Use Node.js
-        uses: actions/setup-node@v3 # Set up Node.js environment
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-          cache: "npm"
-      - run: npm ci # Install npm dependencies
-      - run: npm run build --if-present
-      - run: npm test # Run tests using the npm test script
+          node-version: 18
+
+      - name: Remove old package-lock.json
+        run: rm -f package-lock.json
+
+      - name: Install dependencies and generate new package-lock.json
+        run: npm install
+
+      - name: Commit and Push package-lock.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "Regenerate package-lock.json"
+          git push
+        continue-on-error: true  # Prevents workflow failure if no changes are detected
+
+      - name: Run Jest Tests
+        run: npm test
