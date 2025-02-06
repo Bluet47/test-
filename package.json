@@ -1,11 +1,11 @@
 {
   "name": "sustainability-tracker",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "A CO2 emissions calculator for air travel.",
   "main": "script.js",
   "scripts": {
-  "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "jest"
   },
   "dependencies": {},
   "devDependencies": {
