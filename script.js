@@ -27,4 +27,4 @@ if (typeof document !== 'undefined') {
     document.getElementById('co2-value').innerText = ''; // Reset the CO2 value
   });
 
-module.exports = { calculateCO2 };
+//module.exports = { calculateCO2 };
