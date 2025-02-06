@@ -1,4 +1,4 @@
-function calculateCO2(distance) {
+export function calculateCO2(distance) {
     const co2PerMile = 0.115; // CO2 in kg per mile
 
     if (typeof distance !== "number" || distance <= 0 || isNaN(distance)) {
