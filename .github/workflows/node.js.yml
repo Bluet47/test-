@@ -1,17 +1,10 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: Run Tests
 
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'tests/**'
   pull_request:
-    branches:
-      - main
 
 jobs:
   test:
@@ -28,6 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Clear Jest cache
+        run: npx jest --clearCache
 
       - name: Run tests
         run: npm test
