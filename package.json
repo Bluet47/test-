@@ -1,7 +1,6 @@
 {
   "name": "sustainability-tracker",
   "version": "1.0.0",
-  "type": "commonjs",
   "description": "A CO2 emissions calculator for air travel.",
   "main": "script.js",
   "scripts": {
