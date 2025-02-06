@@ -15,6 +15,7 @@
     "testEnvironment": "node",
     "moduleDirectories": ["node_modules", "<rootDir>"]
   },
+  },
   "author": "Your Name",
   "license": "MIT"
 }
